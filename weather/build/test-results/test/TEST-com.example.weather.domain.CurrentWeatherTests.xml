@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.weather.domain.CurrentWeatherTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-29T12:28:05" hostname="DESKTOP-VSRA0F9" time="0.916">
+  <properties/>
+  <testcase name="getGeoDataByAddress()" classname="com.example.weather.domain.CurrentWeatherTests" time="0.916"/>
+  <system-out><![CDATA[lat35.871437
+lon128.60144
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
