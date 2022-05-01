@@ -7,6 +7,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -72,7 +73,6 @@ public class CurrentWeatherController {
         currentWeather.setWeather_description((String) currentWeatherData.get(("description")));
         currentWeather.setWeather_icon((String) currentWeatherData.get(("icon")));
 
-
         return currentWeather;
     }
 
@@ -87,7 +87,6 @@ public class CurrentWeatherController {
 
             StringBuilder responseStrBuilder = new StringBuilder();
 
-
             URL url = new URL(surl);
 
             BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
@@ -95,7 +94,6 @@ public class CurrentWeatherController {
             while ((result = bf.readLine()) != null) {
                 responseStrBuilder.append(result);
             }
-
 
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(responseStrBuilder.toString());
