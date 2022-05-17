@@ -24,9 +24,6 @@ import java.util.List;
 @RestController
 public class DailyWeatherController {
 
-    //@Autowired
-    //private WeatherService weatherService;
-
     private final String BASE_URL = "http://api.openweathermap.org/data/2.5/onecall";
     private final String apiKey = "7e794e5e8d90a420c85cddb7aeb9358e"; // 발급받은 API key
 

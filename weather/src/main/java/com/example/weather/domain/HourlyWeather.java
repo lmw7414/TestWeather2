@@ -18,6 +18,14 @@ public class HourlyWeather  {
 
     private String dt;
 
+    private int weather_id;
+
+    private String weather_main;
+
+    private String weather_description;
+
+    private String weather_icon;
+
     public String changeUnixTime (String timeStampStr) {
         long timeStamp = Long.parseLong(timeStampStr);
         Date date = new Date(timeStamp * 1000L);

@@ -21,7 +21,6 @@ import java.net.URLEncoder;
 @RestController
 public class CurrentWeatherController {
 
-
     private final String BASE_URL = "http://api.openweathermap.org/data/2.5/onecall";
     private final String apiKey = "7e794e5e8d90a420c85cddb7aeb9358e"; // 발급받은 API key
 
@@ -67,7 +66,7 @@ public class CurrentWeatherController {
         currentWeather.setCurrent_visibility(Integer.parseInt(currentObject.get("visibility").toString()));
         currentWeather.setCurrent_wind_speed(Float.parseFloat(currentObject.get("wind_speed").toString()));
         currentWeather.setCurrent_wind_deg(Integer.parseInt(currentObject.get("wind_deg").toString()));
-        currentWeather.setCurrent_wind_gust(Float.parseFloat(currentObject.get("wind_gust").toString()));
+        //currentWeather.setCurrent_wind_gust(Float.parseFloat(currentObject.get("wind_gust").toString()));
         currentWeather.setWeather_id(Integer.parseInt(currentWeatherData.get("id").toString()));
         currentWeather.setWeather_main((String) currentWeatherData.get(("main")));
         currentWeather.setWeather_description((String) currentWeatherData.get(("description")));
@@ -87,6 +86,7 @@ public class CurrentWeatherController {
 
             StringBuilder responseStrBuilder = new StringBuilder();
 
+
             URL url = new URL(surl);
 
             BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
@@ -94,6 +94,7 @@ public class CurrentWeatherController {
             while ((result = bf.readLine()) != null) {
                 responseStrBuilder.append(result);
             }
+
 
             JSONParser jsonParser = new JSONParser();
             JSONObject jsonObject = (JSONObject) jsonParser.parse(responseStrBuilder.toString());
