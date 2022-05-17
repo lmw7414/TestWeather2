@@ -26,6 +26,8 @@ public class HourlyWeather  {
 
     private String weather_icon;
 
+    private float temp;
+
     public String changeUnixTime (String timeStampStr) {
         long timeStamp = Long.parseLong(timeStampStr);
         Date date = new Date(timeStamp * 1000L);

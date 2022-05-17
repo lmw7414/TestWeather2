@@ -58,7 +58,7 @@ public class HourlyWeatherController {
 //            JSONObject dailyWeatherData = (JSONObject)dailyWeatherArray.get(0);
 
             hourlyWeather.setDt(hourlyWeather.changeUnixTime(hourly.get("dt").toString()));
-
+            hourlyWeather.setTemp(Float.parseFloat(hourly.get("temp").toString())-273.15f);
             hourlyWeather.setWeather_id(Integer.parseInt(hourlyWeatherData.get(("id")).toString()));
             hourlyWeather.setWeather_main((String) hourlyWeatherData.get(("main")));
             hourlyWeather.setWeather_description((String) hourlyWeatherData.get(("description")));
