@@ -29,10 +29,9 @@ public class GeoController {
         point = point.concat(String.valueOf(lat));
         GeoAddress geoAddress = new GeoAddress();
 
-        URL url = new URL(BASE_URL + "?service=" + "address" + "&request=" + "GetAddress" + "&version=" + "2.0"+ "&crs=" + "epsg:4326"
-                +"&point="+ point + "&format=" + "json" + "&type=" + "PARCEL" + "&zipcode=" + "false" + "&simple=" + "true" + "&key=" + apiKey);
+        URL url = new URL(BASE_URL + "?service=address&request=GetAddress&version=2.0&crs=epsg:4326&point="+ point + "&format=json&type=PARCEL&zipcode=false&simple=true&key=" + apiKey);
         String result = "";
-
+//https://api.vworld.kr/req/address?service=address&request=GetAddress&version=2.0&crs=epsg:4326&point=128,35&format=json&type=PARCEL&zipcode=false&simple=true&key=E450D748-4843-392D-9ABB-B886386D5747
 
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
