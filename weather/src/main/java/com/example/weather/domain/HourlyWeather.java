@@ -16,7 +16,13 @@ public class HourlyWeather  {
 
     private String dt;
 
+    private Integer weather_id;
+
+    private String weather_main;
+
     private String weather_description;
+
+    private String weather_icon;
 
     private float temp;
 

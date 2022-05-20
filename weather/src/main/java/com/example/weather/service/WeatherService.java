@@ -49,10 +49,10 @@ public class WeatherService {
 
         for(int i=0; i<jsonArr.size(); i++) {
             dailyWeather = new DailyWeather();
-            dailyWeather.setLat(lat);
-            dailyWeather.setLon(lon);
-            dailyWeather.setTimezone((String) jsonObject.get("timezone"));
-            dailyWeather.setTimezone_offset((long) jsonObject.get("timezone_offset"));
+            //dailyWeather.setLat(lat);
+            //dailyWeather.setLon(lon);
+            //dailyWeather.setTimezone((String) jsonObject.get("timezone"));
+            //dailyWeather.setTimezone_offset((long) jsonObject.get("timezone_offset"));
 
             JSONObject daily = (JSONObject)jsonArr.get(i);
             JSONObject temp = (JSONObject) daily.get("temp");
@@ -61,37 +61,37 @@ public class WeatherService {
             JSONObject dailyWeatherData = (JSONObject)dailyWeatherArray.get(0);
 
             dailyWeather.setDt(dailyWeather.changeUnixTime(daily.get("dt").toString()));
-            dailyWeather.setSunrise(dailyWeather.changeUnixTime(daily.get("sunrise").toString()));
-            dailyWeather.setSunset(dailyWeather.changeUnixTime(daily.get("sunset").toString()));
-            dailyWeather.setMoonrise(dailyWeather.changeUnixTime(daily.get("moonrise").toString()));
-            dailyWeather.setMoonset(dailyWeather.changeUnixTime(daily.get("moonset").toString()));
-            dailyWeather.setMoon_phase(Float.parseFloat(daily.get("moon_phase").toString()));  //(float) daily.get("moon_phase")
-            dailyWeather.setPressure((long) daily.get("pressure"));
+            //dailyWeather.setSunrise(dailyWeather.changeUnixTime(daily.get("sunrise").toString()));
+            //dailyWeather.setSunset(dailyWeather.changeUnixTime(daily.get("sunset").toString()));
+            //dailyWeather.setMoonrise(dailyWeather.changeUnixTime(daily.get("moonrise").toString()));
+            //dailyWeather.setMoonset(dailyWeather.changeUnixTime(daily.get("moonset").toString()));
+            //dailyWeather.setMoon_phase(Float.parseFloat(daily.get("moon_phase").toString()));  //(float) daily.get("moon_phase")
+            //dailyWeather.setPressure((long) daily.get("pressure"));
             dailyWeather.setHumidity(Float.parseFloat(daily.get("humidity").toString()));
-            dailyWeather.setDew_point(Float.parseFloat(daily.get("dew_point").toString())-273.15f);
+            //dailyWeather.setDew_point(Float.parseFloat(daily.get("dew_point").toString())-273.15f);
             dailyWeather.setUvi(Float.parseFloat(daily.get("uvi").toString()));
-            dailyWeather.setClouds(Integer.parseInt(daily.get("clouds").toString()));
+            //dailyWeather.setClouds(Integer.parseInt(daily.get("clouds").toString()));
             dailyWeather.setWind_speed(Float.parseFloat(daily.get("wind_speed").toString()));
-            dailyWeather.setWind_deg(Integer.parseInt(daily.get("wind_deg").toString()));
-            dailyWeather.setWind_gust(Float.parseFloat(daily.get("wind_gust").toString()));
+            //dailyWeather.setWind_deg(Integer.parseInt(daily.get("wind_deg").toString()));
+            //dailyWeather.setWind_gust(Float.parseFloat(daily.get("wind_gust").toString()));
 
             dailyWeather.setTemp_day(Float.parseFloat(temp.get("day").toString())-273.15f);
             dailyWeather.setTemp_min(Float.parseFloat(temp.get("min").toString())-273.15f);
             dailyWeather.setTemp_max(Float.parseFloat(temp.get("max").toString())-273.15f);
-            dailyWeather.setTemp_night(Float.parseFloat(temp.get("night").toString())-273.15f);
-            dailyWeather.setTemp_eve(Float.parseFloat(temp.get("eve").toString())-273.15f);
-            dailyWeather.setTemp_morn(Float.parseFloat(temp.get("morn").toString())-273.15f);
+            //dailyWeather.setTemp_night(Float.parseFloat(temp.get("night").toString())-273.15f);
+            //dailyWeather.setTemp_eve(Float.parseFloat(temp.get("eve").toString())-273.15f);
+            //dailyWeather.setTemp_morn(Float.parseFloat(temp.get("morn").toString())-273.15f);
 
-            dailyWeather.setFeelsLike_day(Float.parseFloat(feels_like.get("day").toString())-273.15f);
-            dailyWeather.setFeelsLike_night(Float.parseFloat(feels_like.get("night").toString())-273.15f);
-            dailyWeather.setFeelsLike_eve(Float.parseFloat(feels_like.get("eve").toString())-273.15f);
-            dailyWeather.setFeelsLike_morn(Float.parseFloat(feels_like.get("morn").toString())-273.15f);
+            //dailyWeather.setFeelsLike_day(Float.parseFloat(feels_like.get("day").toString())-273.15f);
+            //dailyWeather.setFeelsLike_night(Float.parseFloat(feels_like.get("night").toString())-273.15f);
+            //dailyWeather.setFeelsLike_eve(Float.parseFloat(feels_like.get("eve").toString())-273.15f);
+            //dailyWeather.setFeelsLike_morn(Float.parseFloat(feels_like.get("morn").toString())-273.15f);
 
 
-            dailyWeather.setWeather_id(Integer.parseInt(dailyWeatherData.get(("id")).toString()));
+            //dailyWeather.setWeather_id(Integer.parseInt(dailyWeatherData.get(("id")).toString()));
             dailyWeather.setWeather_main((String) dailyWeatherData.get(("main")));
-            dailyWeather.setWeather_description((String) dailyWeatherData.get(("description")));
-            dailyWeather.setWeather_icon((String) dailyWeatherData.get(("icon")));
+            //dailyWeather.setWeather_description((String) dailyWeatherData.get(("description")));
+            //dailyWeather.setWeather_icon((String) dailyWeatherData.get(("icon")));
 
             dailyWeathers.add(dailyWeather);
 
@@ -123,28 +123,28 @@ public class WeatherService {
         JSONArray currentWeatherObject = (JSONArray) currentObject.get("weather");
         JSONObject currentWeatherData = (JSONObject) currentWeatherObject.get(0);
 
-        currentWeather.setLat(lat);
-        currentWeather.setLon(lon);
-        currentWeather.setTimezone((String) jsonObject.get("timezone"));
-        currentWeather.setTimezone_offset((long) jsonObject.get("timezone_offset"));
-        currentWeather.setCurrent_dt(currentWeather.changeUnixTime(currentObject.get("dt").toString()));
-        currentWeather.setCurrent_sunrise(currentWeather.changeUnixTime(currentObject.get("sunrise").toString()));
-        currentWeather.setCurrent_sunset(currentWeather.changeUnixTime(currentObject.get("sunset").toString()));
+        //currentWeather.setLat(lat);
+        //currentWeather.setLon(lon);
+        //currentWeather.setTimezone((String) jsonObject.get("timezone"));
+        //currentWeather.setTimezone_offset((long) jsonObject.get("timezone_offset"));
+        //currentWeather.setCurrent_dt(currentWeather.changeUnixTime(currentObject.get("dt").toString()));
+        //currentWeather.setCurrent_sunrise(currentWeather.changeUnixTime(currentObject.get("sunrise").toString()));
+        //currentWeather.setCurrent_sunset(currentWeather.changeUnixTime(currentObject.get("sunset").toString()));
         currentWeather.setCurrent_temp(Float.parseFloat(currentObject.get("temp").toString())-273.15f);
-        currentWeather.setCurrent_feels_like(Float.parseFloat(currentObject.get("feels_like").toString())-273.15f);
-        currentWeather.setCurrent_pressure((long) currentObject.get("pressure"));
-        currentWeather.setCurrent_humidity(Float.parseFloat(currentObject.get("humidity").toString()));
-        currentWeather.setCurrent_dew_point(Float.parseFloat(currentObject.get("dew_point").toString())-273.15f);
-        currentWeather.setCurrent_uvi(Float.parseFloat(currentObject.get("uvi").toString()));
-        currentWeather.setCurrent_clouds(Integer.parseInt(currentObject.get("clouds").toString()));
-        currentWeather.setCurrent_visibility(Integer.parseInt(currentObject.get("visibility").toString()));
-        currentWeather.setCurrent_wind_speed(Float.parseFloat(currentObject.get("wind_speed").toString()));
-        currentWeather.setCurrent_wind_deg(Integer.parseInt(currentObject.get("wind_deg").toString()));
+        //currentWeather.setCurrent_feels_like(Float.parseFloat(currentObject.get("feels_like").toString())-273.15f);
+        //currentWeather.setCurrent_pressure((long) currentObject.get("pressure"));
+        //currentWeather.setCurrent_humidity(Float.parseFloat(currentObject.get("humidity").toString()));
+        //currentWeather.setCurrent_dew_point(Float.parseFloat(currentObject.get("dew_point").toString())-273.15f);
+        //currentWeather.setCurrent_uvi(Float.parseFloat(currentObject.get("uvi").toString()));
+        //currentWeather.setCurrent_clouds(Integer.parseInt(currentObject.get("clouds").toString()));
+        //currentWeather.setCurrent_visibility(Integer.parseInt(currentObject.get("visibility").toString()));
+        //currentWeather.setCurrent_wind_speed(Float.parseFloat(currentObject.get("wind_speed").toString()));
+        //currentWeather.setCurrent_wind_deg(Integer.parseInt(currentObject.get("wind_deg").toString()));
         //currentWeather.setCurrent_wind_gust(Float.parseFloat(currentObject.get("wind_gust").toString()));
-        currentWeather.setWeather_id(Integer.parseInt(currentWeatherData.get("id").toString()));
+        //currentWeather.setWeather_id(Integer.parseInt(currentWeatherData.get("id").toString()));
         currentWeather.setWeather_main((String) currentWeatherData.get(("main")));
-        currentWeather.setWeather_description((String) currentWeatherData.get(("description")));
-        currentWeather.setWeather_icon((String) currentWeatherData.get(("icon")));
+        //currentWeather.setWeather_description((String) currentWeatherData.get(("description")));
+        //currentWeather.setWeather_icon((String) currentWeatherData.get(("icon")));
 
         return currentWeather;
     }
@@ -172,7 +172,7 @@ public class WeatherService {
 
         for(int i=0; i<jsonArr.size(); i++) {
             hourlyWeather = new HourlyWeather();
-            hourlyWeather.setTimezone((String) jsonObject.get("timezone"));
+            //hourlyWeather.setTimezone((String) jsonObject.get("timezone"));
 
             JSONObject hourly = (JSONObject)jsonArr.get(i);
             JSONArray hourlyWeatherArray = (JSONArray) hourly.get("weather");
@@ -232,7 +232,6 @@ public class WeatherService {
             JSONObject dust = (JSONObject)jsonArr.get(i);
             JSONObject pm = (JSONObject) dust.get("components");
 
-            if (count % 24 == 0) {
                 dailyDust.setDt(Long.toString((Long) dust.get("dt")));
                 if (pm.get("pm2_5").getClass().getName() == "java.lang.Double") {
                     tempDouble = (Double) pm.get("pm2_5");
@@ -242,8 +241,6 @@ public class WeatherService {
                     dailyDust.setPm((double) tempLong);
                 }
                 dailyDusts.add(dailyDust);
-            }
-            count++;
         }
         return dailyDusts;
     }

@@ -33,6 +33,8 @@ public class DailyWeather {
 
     private float uvi;
 
+    private float temp_day;
+
     private float temp_min;
 
     private float temp_max;

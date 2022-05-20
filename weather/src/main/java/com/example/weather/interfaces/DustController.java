@@ -21,9 +21,6 @@ import java.util.List;
 @RestController
 public class DustController {
 
-    private final String BASE_URL = "http://api.openweathermap.org/data/2.5/air_pollution/history";
-    private final String apiKey = "7e794e5e8d90a420c85cddb7aeb9358e"; // 발급받은 API key
-
     @GetMapping("/weathers/dust/{city}/{start}/{end}")
     public List<DailyDust> getDust(@PathVariable("city") String city,
                                     @PathVariable("start") int start,
@@ -37,3 +34,5 @@ public class DustController {
 }
 
 
+
+// http://api.openweathermap.org/data/2.5/air_pollution/history?lat=35&lon=128&start=1653030556&end=1653862156&appid=7e794e5e8d90a420c85cddb7aeb9358e

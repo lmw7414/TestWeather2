@@ -33,3 +33,30 @@ public class CurrentWeatherController {
         return weatherService.getCurrentWeatherData(city);
     }
 }
+
+/*
+location: string; //위치
+  weather_main: string; // 날씨
+  dt: string; // 날짜
+  temp_max: number; // 최고온도
+  temp_min: number; // 최저온도
+  uvi: number; // 자외선
+  humidity: number; // 습도
+  rain: number; // 강수확률
+  wind_speed: number; // 풍속
+  score: number; // 점수
+
+
+location: string; // 현재 위치
+        current_temp: number; // 현재 온도
+        weather_main: string; // 날씨
+        todayScore: number; // 현재 점수
+        current_dt: string; // 현재 날짜
+
+
+    export type HourlyWeatherType = {
+        weather: string; // 날씨
+        temp: number; // 온도
+        weather_description: string; // 날씨 상세정보
+        dt: string; // 시간
+        */
