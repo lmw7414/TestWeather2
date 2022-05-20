@@ -16,49 +16,11 @@ import java.util.TimeZone;
 @Getter
 public class CurrentWeather {
 
-    private float lat;
-
-    private float lon;
-
-    private String timezone;
-
-    private long timezone_offset;
-
     private String current_dt;
-
-    private String current_sunrise;
-
-    private String current_sunset;
 
     private float current_temp;
 
-    private float current_feels_like;
-
-    private long current_pressure;
-
-    private float current_humidity;
-
-    private float current_dew_point;
-
-    private float current_uvi;
-
-    private int current_clouds;
-
-    private int current_visibility;
-
-    private float current_wind_speed;
-
-    private int current_wind_deg;
-
-    private float current_wind_gust;
-
-    private int weather_id;
-
     private String weather_main;
-
-    private String weather_description;
-
-    private String weather_icon;
 
 
 

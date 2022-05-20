@@ -14,17 +14,9 @@ import java.util.TimeZone;
 public class HourlyWeather  {
     private String weather;
 
-    private String timezone;
-
     private String dt;
 
-    private int weather_id;
-
-    private String weather_main;
-
     private String weather_description;
-
-    private String weather_icon;
 
     private float temp;
 
