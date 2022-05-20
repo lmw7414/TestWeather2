@@ -18,16 +18,9 @@ public class DailyWeather {
 
     private String dt;
 
-    //private Temp temp;
-
-    // Feelslike feels_like;
-
     private float humidity;
 
     private float wind_speed;
-
-    //private Weather weather;
-
 
     private float rain;
 
@@ -41,7 +34,7 @@ public class DailyWeather {
 
     private String weather_main;
 
-  //점수 score 추가
+    private float score;  // 불쾌지수
 
     public String changeUnixTime (String timeStampStr) {
         long timeStamp = Long.parseLong(timeStampStr);

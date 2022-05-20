@@ -93,6 +93,7 @@ public class WeatherService {
             //dailyWeather.setWeather_description((String) dailyWeatherData.get(("description")));
             //dailyWeather.setWeather_icon((String) dailyWeatherData.get(("icon")));
 
+            dailyWeather.setScore(calDisomfortIndex(dailyWeather.getTemp_day(), dailyWeather.getHumidity()));
             dailyWeathers.add(dailyWeather);
 
         }
@@ -127,13 +128,13 @@ public class WeatherService {
         //currentWeather.setLon(lon);
         //currentWeather.setTimezone((String) jsonObject.get("timezone"));
         //currentWeather.setTimezone_offset((long) jsonObject.get("timezone_offset"));
-        //currentWeather.setCurrent_dt(currentWeather.changeUnixTime(currentObject.get("dt").toString()));
+        currentWeather.setCurrent_dt(currentWeather.changeUnixTime(currentObject.get("dt").toString()));
         //currentWeather.setCurrent_sunrise(currentWeather.changeUnixTime(currentObject.get("sunrise").toString()));
         //currentWeather.setCurrent_sunset(currentWeather.changeUnixTime(currentObject.get("sunset").toString()));
         currentWeather.setCurrent_temp(Float.parseFloat(currentObject.get("temp").toString())-273.15f);
         //currentWeather.setCurrent_feels_like(Float.parseFloat(currentObject.get("feels_like").toString())-273.15f);
         //currentWeather.setCurrent_pressure((long) currentObject.get("pressure"));
-        //currentWeather.setCurrent_humidity(Float.parseFloat(currentObject.get("humidity").toString()));
+        currentWeather.setCurrent_humidity(Float.parseFloat(currentObject.get("humidity").toString()));
         //currentWeather.setCurrent_dew_point(Float.parseFloat(currentObject.get("dew_point").toString())-273.15f);
         //currentWeather.setCurrent_uvi(Float.parseFloat(currentObject.get("uvi").toString()));
         //currentWeather.setCurrent_clouds(Integer.parseInt(currentObject.get("clouds").toString()));
@@ -145,6 +146,8 @@ public class WeatherService {
         currentWeather.setWeather_main((String) currentWeatherData.get(("main")));
         //currentWeather.setWeather_description((String) currentWeatherData.get(("description")));
         //currentWeather.setWeather_icon((String) currentWeatherData.get(("icon")));
+
+        currentWeather.setScore(calDisomfortIndex(currentWeather.getCurrent_temp(), currentWeather.getCurrent_humidity()));
 
         return currentWeather;
     }
@@ -287,5 +290,9 @@ public class WeatherService {
             e.printStackTrace();
         }
         return arr;
+    }
+    //불쾌지수
+    public static float calDisomfortIndex(float cel, float humidity) {
+        return (float) (0.81*cel + 0.01*humidity*(0.99*cel-14.3) +46.3);
     }
 }

@@ -22,7 +22,9 @@ public class CurrentWeather {
 
     private String weather_main;
 
+    private float current_humidity;
 
+    private float score;  // 불쾌지수
 
     public String changeUnixTime (String timeStampStr) {
         long timeStamp = Long.parseLong(timeStampStr);
