@@ -31,7 +31,6 @@ public class ScoreService {
         float result1;
         float result2;
         float result3;
-
         switch (weather) {
             case "clear":
                 clearScore = 60;
@@ -52,6 +51,7 @@ public class ScoreService {
                 rainScore = 0;
                 break;
             case "snow":
+
                 clearScore = 0;
                 cloudyScore = 0;
                 snowScore = 100;
@@ -108,16 +108,16 @@ public class ScoreService {
         for( int i=0; i< dailyWeathers.size(); i++) {
 
             switch(dailyWeathers.get(i).getWeather_main()) {
-                case "Clear":
+                case "clear":
                     result1 = (float)(33.3 * clearScore / 100);
                     break;
-                case "Clouds":
+                case "clouds":
                     result1 = (float)(33.3 * cloudyScore / 100);
                     break;
-                case "Rain":
+                case "rain":
                     result1 = (float)(33.3 * rainScore / 100);
                     break;
-                case "Snow":
+                case "snow":
                     result1 = (float)(33.3 * snowScore / 100);
                     break;
                 default:
