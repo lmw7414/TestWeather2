@@ -108,16 +108,16 @@ public class ScoreService {
         for( int i=0; i< dailyWeathers.size(); i++) {
 
             switch(dailyWeathers.get(i).getWeather_main()) {
-                case "clear":
+                case "Clear":
                     result1 = (float)(33.3 * clearScore / 100);
                     break;
-                case "clouds":
+                case "Clouds":
                     result1 = (float)(33.3 * cloudyScore / 100);
                     break;
-                case "rain":
+                case "Rain":
                     result1 = (float)(33.3 * rainScore / 100);
                     break;
-                case "snow":
+                case "Snow":
                     result1 = (float)(33.3 * snowScore / 100);
                     break;
                 default:
