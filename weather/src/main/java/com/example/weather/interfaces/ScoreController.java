@@ -2,6 +2,7 @@ package com.example.weather.interfaces;
 
 import com.example.weather.domain.DailyWeather;
 import com.example.weather.domain.ScoreFilter;
+import com.example.weather.service.ScoreService;
 import com.example.weather.service.WeatherService;
 import org.json.simple.parser.ParseException;
 import org.springframework.http.ResponseEntity;
@@ -16,13 +17,9 @@ import java.util.List;
 @RestController
 public class ScoreController {
     @PostMapping("/weathers/score")
-    public List<Float> calScore(@RequestBody ScoreFilter resource) throws IOException, ParseException {
+    public List<Float> calculate(@RequestBody ScoreFilter resource) throws IOException, ParseException {
+        ScoreService scoreService = new ScoreService();
 
-        WeatherService weatherService = new WeatherService();
-        List<Float> scoreset = new ArrayList<>();
-        List<DailyWeather> dailyWeathers = weatherService.getDailyWeatherData(resource.getLocation());
-
-
-        return null;
+        return scoreService.calScore(resource.getLocation(), resource.getWeather(), resource.getWind());
     }
 }
