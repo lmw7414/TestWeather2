@@ -17,6 +17,7 @@ public class ScoreService {
         List<Float> scoreset = new ArrayList<>();
         List<DailyWeather> dailyWeathers = weatherService.getDailyWeatherData(city);
 
+
         int clearScore;  // 구름 없음
         int cloudyScore;  // 구름 있음
         int snowScore;
@@ -107,6 +108,18 @@ public class ScoreService {
 
         for( int i=0; i< dailyWeathers.size(); i++) {
 
+            //System.out.println(weather + " && " + dailyWeathers.get(i).getWeather_main());
+            if(weather.equals("snow") && dailyWeathers.get(i).getWeather_main().equals("Rain")) {
+                //System.out.println("error1");
+                scoreset.add((float) 0);
+                continue;
+            }
+            if(weather.equals("rain") && dailyWeathers.get(i).getWeather_main().equals("Snow")) {
+                //System.out.println("error2");
+                scoreset.add((float) 0);
+                continue;
+            }
+
             switch(dailyWeathers.get(i).getWeather_main()) {
                 case "Clear":
                     result1 = (float)(33.3 * clearScore / 100);
@@ -148,6 +161,8 @@ public class ScoreService {
                 result3 = (float)(33.3 * 0.03);
             else
                 result3 = (float)(33.3 * 0.02);
+
+
 
             scoreset.add(result1 + result2 + result3);
         }
